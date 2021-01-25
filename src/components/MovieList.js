@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import MovieItem from "./MovieItem";
+import ErrorPage from "./ErrorPage";
+import LoadingPage from "./LoadingPage";
 
 const MovieGridStyles = styled.div`
   display: grid;
@@ -8,9 +10,12 @@ const MovieGridStyles = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 `;
 
-const MovieList = ({ movies, error }) => {
+const MovieList = ({ movies, error, loading }) => {
   if (error) {
-    return <h1>YOU FUCKED UP</h1>;
+    return <ErrorPage />;
+  }
+  if (loading) {
+    return <LoadingPage />;
   }
   return (
     <MovieGridStyles>

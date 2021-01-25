@@ -27,7 +27,7 @@ const Layout = styled.div`
 `;
 
 const App = () => {
-  const [movies, search, error] = useMovies("Gladiator");
+  const [movies, search, error, loading] = useMovies("Gladiator");
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -35,7 +35,7 @@ const App = () => {
       <Layout>
         <Header />
         <SearchBar onFormSubmit={search} />
-        <MovieList error={error} movies={movies} />
+        <MovieList loading={loading} error={error} movies={movies} />
       </Layout>
     </ThemeProvider>
   );

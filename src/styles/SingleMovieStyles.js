@@ -70,6 +70,11 @@ const SingleMovieStyles = styled.div`
     padding: 1rem;
     font-size: 1.4rem;
   }
+  @media only screen and (max-width: 600px) {
+    .card {
+      margin: 0 auto;
+    }
+  }
 `;
 
 export default SingleMovieStyles;

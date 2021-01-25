@@ -10,10 +10,9 @@ const SearchStyles = styled.div`
       font-size: 1.5rem;
       color: white;
       padding: 1.5rem 2rem;
-      border-radius: 2px;
       border: none;
-      width: 90%;
-      display: block;
+      width: 70%;
+      /* display: block; */
       transition: all 0.3s;
       background: ${(props) => props.theme.lightGray};
 
@@ -44,6 +43,22 @@ const SearchStyles = styled.div`
       transition: all 0.3s;
       color: white;
     }
+
+    &__search-box {
+      display: flex;
+    }
+
+    &__button {
+      background: ${(props) => props.theme.lightGreen};
+      color: ${(props) => props.theme.gray};
+      border: 1px solid ${(props) => props.theme.darkGreen};
+      height: 5rem;
+      padding: 1.5rem;
+
+      &:focus {
+        outline: 0;
+      }
+    }
   }
 `;
 
@@ -62,16 +77,21 @@ const SearchBar = ({ onFormSubmit }) => {
         <label htmlFor="name" className="form__label">
           Go on, enter your favorite movie. We'll find some similar ones.
         </label>
-        <input
-          type="text"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-          className="form__input"
-          placeholder="Ex. Gladiator"
-          name="name"
-          id="name"
-          required
-        />
+        <div className="form__search-box">
+          <input
+            type="text"
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            className="form__input"
+            placeholder="Ex. Gladiator"
+            name="name"
+            id="name"
+            required
+          />
+          <button className="form__button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
       </form>
     </SearchStyles>
   );

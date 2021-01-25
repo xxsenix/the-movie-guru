@@ -6,15 +6,22 @@ const HeaderStyles = styled.header`
   padding: 1.5rem;
 
   .logo-box {
-    text-decoration: none;
     color: ${(props) => props.theme.lightGreen};
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+    }
 
     &__img {
       font-size: 7.5rem;
+      transform: rotate(-20deg);
     }
 
     &__text {
-      font-size: 3.5rem;
+      font-size: 4.5rem;
+      transform: rotate(10deg);
       &:hover {
         transform: skewY(-5deg);
       }
@@ -25,10 +32,14 @@ const HeaderStyles = styled.header`
 const Header = () => {
   return (
     <HeaderStyles>
-      <a href="/" className="logo-box">
-        <i className="fas fa-hat-wizard logo-box__img"></i>
-        <p className="logo-box__text">Movie Guru</p>
-      </a>
+      <div className="logo-box">
+        <a href="/">
+          <i className="fas fa-hat-wizard logo-box__img"></i>
+        </a>
+        <a href="/">
+          <p className="logo-box__text">Movie Guru</p>
+        </a>
+      </div>
     </HeaderStyles>
   );
 };

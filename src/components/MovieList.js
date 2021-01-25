@@ -6,14 +6,16 @@ const MovieGridStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 10px;
 `;
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, error }) => {
+  if (error) {
+    return <h1>YOU FUCKED UP</h1>;
+  }
   return (
     <MovieGridStyles>
       {movies.map((movie) => {
-        return <MovieItem movie={movie} />;
+        return <MovieItem key={movie.id} movie={movie} />;
       })}
     </MovieGridStyles>
   );

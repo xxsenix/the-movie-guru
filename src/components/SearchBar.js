@@ -8,6 +8,7 @@ const SearchStyles = styled.div`
 
     &__input {
       font-size: 1.5rem;
+      color: white;
       padding: 1.5rem 2rem;
       border-radius: 2px;
       border: none;
@@ -18,7 +19,11 @@ const SearchStyles = styled.div`
 
       &:focus {
         outline: none;
-        box-shadow: 0 1rem 2rem rgba(${(props) => props.theme.gray}, 0.1);
+        box-shadow: 0 1rem 2rem rgba(gray, 0.1);
+      }
+
+      &:focus:valid {
+        border-bottom: 3px solid ${(props) => props.theme.lightGreen};
       }
 
       &:focus:invalid {
@@ -48,6 +53,7 @@ const SearchBar = ({ onFormSubmit }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     onFormSubmit(term);
+    setTerm("");
   };
 
   return (

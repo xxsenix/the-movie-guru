@@ -54,6 +54,7 @@ const SearchStyles = styled.div`
       border: 1px solid ${(props) => props.theme.darkGreen};
       height: 5rem;
       padding: 1.5rem;
+      cursor: pointer;
 
       &:focus {
         outline: 0;
